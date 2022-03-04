@@ -1,16 +1,28 @@
-# flutter_projects
+# Rick and Morty 
 
-A new Flutter project with Clean Architecture.
+В этом проекте познакомился и применил на практике Clean Architecture.
 
-## Getting Started
+## Использованные технологии:
+  - Dart/Flutter
+  - Clean Architecture 
+  - Dependency Injection: (пакет get_it)
+  - Хранение данных (кэширование): Shared Preferences
+  - State managers: BloC, Cubit
+  - Запросы к REST API: http
+  - API: https://rickandmortyapi.com/api/
 
-This project is a starting point for a Flutter application.
+## Текущее состояние проекта
+### В проекте реализованы и работают следующие элементы
+  - Загрузка и отображение списка персонажей из интеренета
+  - Кэширование 20 персонажей
+  - Скроллинг списка персонажей 
 
-A few resources to get you started if this is your first Flutter project:
+### Задачи на будущее:
+  - Добавить интерфейс поиска персонажа
+  - Миграция на null-safety
+  - Экран детальной информации о персонаже
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Превью 
+
+* Появится позже *
