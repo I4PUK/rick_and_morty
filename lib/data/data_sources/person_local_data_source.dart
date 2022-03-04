@@ -19,7 +19,8 @@ class PersonLocalDataSourceImpl extends PersonLocalDataSource{
   @override
   Future<List<PersonModel>> getLastPersonsFromCache() async {
     //TODO: refactor this
-    final List<String> jsonPersonsList = sharedPreferences.getStringList(CACHED_PERSONS_LIST)!;
+    final list = sharedPreferences.getStringList(CACHED_PERSONS_LIST) ?? [];
+    final List<String> jsonPersonsList = list;
     if (jsonPersonsList.isNotEmpty){
       return Future.value(jsonPersonsList.map((person) => PersonModel.fromJson(json.decode(person))).toList());
     } else {

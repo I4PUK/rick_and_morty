@@ -1,4 +1,4 @@
-#Fri Mar 04 12:41:59 MSK 2022
+#Fri Mar 04 20:30:53 MSK 2022
 base.0=/Users/mishukoffs/Documents/flutter_projects/rick-and-morty/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

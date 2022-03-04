@@ -16,9 +16,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  //BLoC, Cubit
-  sl.registerFactory(() => PersonListCubit(getAllPersons: sl()));
-  sl.registerFactory(() => PersonSearchBloc(searchPerson: sl()));
+  // BLoC / Cubit
+  sl.registerFactory(
+    () => PersonListCubit(getAllPersons: sl()),
+  );
+  sl.registerFactory(
+    () => PersonSearchBloc(searchPerson: sl()),
+  );
 
   // UseCases
   sl.registerLazySingleton(() => GetAllPersons(sl()));
@@ -34,17 +38,23 @@ Future<void> init() async {
   );
 
   sl.registerLazySingleton<PersonRemoteDataSource>(
-      () => PersonRemoteDataSourceImpl(client: http.Client()));
+    () => PersonRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
 
   sl.registerLazySingleton<PersonLocalDataSource>(
-      () => PersonLocalDataSourceImpl(sharedPreferences: sl()));
+    () => PersonLocalDataSourceImpl(sharedPreferences: sl()),
+  );
 
-  // Core, network
-  sl.registerLazySingleton<NetworkInfoImpl>(() => NetworkInfoImpl(sl()));
+  // Core
+  sl.registerLazySingleton<NetworkInfo>(
+    () => NetworkInfoImpl(sl()),
+  );
 
   // External
-  final sharedPreferences = SharedPreferences.getInstance();
-  sl.registerLazySingleton(() async => sharedPreferences);
-  sl.registerLazySingleton(() => http.Client);
+  final sharedPreferences = await SharedPreferences.getInstance();
+  sl.registerLazySingleton(() => sharedPreferences);
+  sl.registerLazySingleton(() => http.Client());
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }

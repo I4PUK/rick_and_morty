@@ -55,11 +55,9 @@ class PersonCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    //TODO: add person species
-                    // '${person.status} - ${person.species}',
                     Expanded(
                       child: Text(
-                        '${person.status} - ',
+                        "${person.status} - ${person.species}",
                         style: TextStyle(color: Colors.white),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
