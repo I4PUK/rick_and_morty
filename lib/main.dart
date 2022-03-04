@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_projects/common/app_colors.dart';
 import 'package:flutter_projects/locator_service.dart' as di;
 import 'package:flutter_projects/locator_service.dart';
 import 'package:flutter_projects/presentation/bloc/person_list_cubit/person_list_cubit.dart';
@@ -16,15 +17,20 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
-      BlocProvider<PersonListCubit>(create: (context) => sl<PersonListCubit>()),
-      BlocProvider<PersonSearchBloc>(create: (context) => sl<PersonSearchBloc>()),
-    ], child: MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        backgroundColor: Colors.black,
-        scaffoldBackgroundColor: Colors.grey,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PersonListCubit>(
+            create: (context) => sl<PersonListCubit>()..loadPerson()),
+        BlocProvider<PersonSearchBloc>(
+            create: (context) => sl<PersonSearchBloc>()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData.dark().copyWith(
+          backgroundColor: AppColors.mainBackground,
+          scaffoldBackgroundColor: AppColors.mainBackground,
+        ),
+        home: HomePage(),
       ),
-      home: HomePage(),
-    ),);
+    );
   }
 }
