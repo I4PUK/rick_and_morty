@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 
 class PersonCacheImage extends StatelessWidget {
   final String imageUrl;
-  final double width, height;
+  final double? width, height;
 
   const PersonCacheImage(
-      {Key? key,
-      required this.imageUrl,
-      required this.height,
-      required this.width})
+      {Key? key, required this.imageUrl, this.height, this.width})
       : super(key: key);
 
   Widget _imageWidget(ImageProvider imageProvider) {
