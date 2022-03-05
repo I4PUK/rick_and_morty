@@ -1,7 +1,7 @@
 import 'package:flutter_projects/domain/entities/location_entity.dart';
 
 class LocationModel extends LocationEntity{
-  const LocationModel({name, url}) : super(name, url);
+  const LocationModel({name, url}) : super(name: name, url: url);
 
   factory LocationModel.fromJson(Map<String, dynamic> json) => LocationModel(name: json['name'], url: json['url']);
 
